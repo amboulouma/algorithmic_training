@@ -1,8 +1,6 @@
 n = int(input())
-# Liste des codes avec leurs pos - 1, i+1 est dans code_pos[i]
 code_pos = list(map(int, input().split()))
 r = int(input())
-# Liste des codes recherchés
 codes = list(map(int, input().split()))
 
 containers = []
