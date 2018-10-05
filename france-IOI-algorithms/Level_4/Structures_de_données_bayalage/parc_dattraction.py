@@ -29,9 +29,4 @@ for j in range(R):
     if D == F:
         print(V[D-1])
     else:
-        s = 0
-        n = F-D+1
-        for i in range(n):
-            s += V[D-1]
-            D += 1
-        print(s)
+        print(sum(V[D-1:F]))
