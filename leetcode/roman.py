@@ -19,8 +19,8 @@ def romanToInt(s):
             return roman_to_number + abs(count) + roman_dict[s[len(s) - 1]]
         elif s[len(s) - 2] < s[len(s) - 1]:
             return roman_to_number + count + roman_dict[s[len(s) - 1]]
-        else:
-            return roman_to_number
+    else:
+        return roman_to_number
 
 
 print(romanToInt("III"))
