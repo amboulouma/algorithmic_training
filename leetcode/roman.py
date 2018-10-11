@@ -5,22 +5,17 @@ def romanToInt(s):
     """
     roman_dict = {'I': 1, 'V': 5, 'X': 10,
                   'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    roman_to_number = 0
-    count = 0
-    for i in range(len(s)-1):
-        if roman_dict[s[i]] <= roman_dict[s[i+1]]:
-            count -= roman_dict[s[i]]
+    rev_s = s[::-1]
+    previous_roman = 0
+    val = 0
+    for i in range(len(s)):
+        roman_int = roman_dict[rev_s[i]]
+        if roman_int < previous_roman:
+            val -= roman_int
         else:
-            roman_to_number += count
-            roman_to_number += roman_dict[s[i]]
-            count = 0
-    if count < 0:
-        if s[len(s) - 2] == s[len(s) - 1]:
-            return roman_to_number + abs(count) + roman_dict[s[len(s) - 1]]
-        elif s[len(s) - 2] < s[len(s) - 1]:
-            return roman_to_number + count + roman_dict[s[len(s) - 1]]
-    else:
-        return roman_to_number
+            val += roman_int
+        previous_roman = roman_int
+    return val
 
 
 print(romanToInt("III"))
@@ -29,3 +24,5 @@ print(romanToInt("IX"))
 print(romanToInt("LVIII"))
 print(romanToInt("MCMXCIV"))
 print(romanToInt("DCXXI"))
+print(romanToInt("CXC"))
+
